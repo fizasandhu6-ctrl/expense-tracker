@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <button id="theme-btn">🌙 Dark Mode</button>
+    </div>
+
+    <!-- Form -->
+    <form id="transaction-form">
+      <input id="desc" type="text" placeholder="Description" aria-label="Description" required>
+      <input id="amount" type="number" placeholder="Amount" aria-label="Amount in PKR" min="0.01" step="any" required>
+       <select id="type" aria-label="Type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <select id="category" aria-label="Category">
+        <option value="Salary">Salary</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit">Add Transaction</button>
+    </form>
+
+    <!-- Filter -->
+    <div class="filter">
+      <select id="filter-type">
+        <option value="all">All</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary">
+      <div class="card income">
+        <h3>Total Income</h3>
+        <p id="total-income">PKR 0</p>
+        <p id="total-income-usd">$0</p>
+      </div>
+      <div class="card expense">
+        <h3>Total Expense</h3>
+        <p id="total-expense">PKR 0</p>
+        <p id="total-expense-usd">$0</p>
+      </div>
+      <div class="card balance">
+        <h3>Balance</h3>
+        <p id="balance">PKR 0</p>
+        <p id="balance-usd">$0</p>
+      </div>
+    </div>
+
+    <!-- Transactions Table -->
+    <table id="transactions">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="transaction-list"></tbody>
+    </table>
+
+    <!-- Chart -->
+    <canvas id="financeChart" role="img" aria-label="Expenses by category chart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
