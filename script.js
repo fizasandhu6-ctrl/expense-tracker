@@ -149,31 +149,6 @@ async function renderCards() {
 }
 
 
-// Cards
-// async function renderCards() {
-//   const { income, expense, balance } = calculateTotals();
-
-//   const rate = await fetchRate();
-
-//   document.getElementById('total-income').textContent =
-//     `PKR ${income}`;
-
-//   document.getElementById('total-income-usd').textContent =
-//     `$${(income / rate).toFixed(2)}`;
-
-//   document.getElementById('total-expense').textContent =
-//     `PKR ${expense}`;
-
-//   document.getElementById('total-expense-usd').textContent =
-//     `$${(expense / rate).toFixed(2)}`;
-
-//   document.getElementById('balance').textContent =
-//     `PKR ${balance}`;
-
-//   document.getElementById('balance-usd').textContent =
-//     `$${(balance / rate).toFixed(2)}`;
-// }
-
 
 // Table
 function renderTable() {
