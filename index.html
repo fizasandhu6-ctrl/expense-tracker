@@ -8,6 +8,15 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
+
+  <div class="app">
+  <aside class="sidebar">
+  <div class="sidebar-top">
+    <h2>Ledgers</h2>
+    <button id="add-ledger-btn" type="button" class="add-ledger">+ New Ledger</button>
+  </div>
+  <ul class="ledger-list" id="ledger-list"></ul>
+</aside>
   <div class="container">
     <h1>Expense Tracker</h1>
     
@@ -20,6 +29,7 @@
     <form id="transaction-form">
       <input id="desc" type="text" placeholder="Description" aria-label="Description" required>
       <input id="amount" type="number" placeholder="Amount" aria-label="Amount in PKR" min="0.01" step="any" required>
+      <input id="date" type="date" aria-label="Date" required>
        <select id="type" aria-label="Type">
         <option value="income">Income</option>
         <option value="expense">Expense</option>
@@ -41,6 +51,26 @@
         <option value="expense">Expense</option>
       </select>
     </div>
+
+    <details class="data-menu">
+  <summary>Export / Backup</summary>
+  <div class="data-menu-body">
+    <label>Month (khali = sab)
+      <input id="export-month" type="month">
+    </label>
+    <button id="export-csv-btn" type="button">Download for Spreadsheet (CSV)</button>
+    <button id="backup-btn" type="button">Backup file (JSON)</button>
+    <button id="restore-btn" type="button">Restore from backup</button>
+    <input id="restore-file" type="file" accept=".json" hidden>
+  </div>
+</details>
+
+      <div class="month-nav">
+        <button id="prev-month" type="button" aria-label="Previous month">‹</button>
+          <input id="month-picker" type="month" aria-label="Month">
+         <button id="next-month" type="button" aria-label="Next month">›</button>
+         <button id="all-time" type="button">All time</button>
+      </div>
 
     <!-- Summary Cards -->
     <div class="summary">
@@ -71,6 +101,7 @@
           <th>Category</th>
           <th>Date</th>
           <th>Action</th>
+          <!-- <th>Balance</th> -->
         </tr>
       </thead>
       <tbody id="transaction-list"></tbody>
@@ -79,7 +110,7 @@
     <!-- Chart -->
     <canvas id="financeChart" role="img" aria-label="Expenses by category chart"></canvas>
   </div>
-
+</div>
   <script src="script.js"></script>
 </body>
 </html>
